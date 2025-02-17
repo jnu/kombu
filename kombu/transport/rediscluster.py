@@ -614,7 +614,8 @@ class Channel(RedisChannel):
 
             conn_params['connection_pool_class'] = ManagedConnectionPool
 
-        conn_params['url'] = f'redis://{conn_params["host"]}:{conn_params["port"]}'
+        scheme = "rediss" if self.connection.client.ssl else "redis"
+        conn_params['url'] = f'{scheme}://{conn_params["host"]}:{conn_params["port"]}'
         return conn_params
 
     def _create_client(self, asynchronous=False):
