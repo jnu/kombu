@@ -46,6 +46,7 @@ TRANSPORT_ALIASES = {
     'pyro': 'kombu.transport.pyro:Transport',
     'gcpubsub': 'kombu.transport.gcpubsub:Transport',
     'rediscluster': 'kombu.transport.rediscluster:Transport',
+    'redisclusters': 'kombu.transport.rediscluster:Transport',
 }
 
 _transport_cache: dict[str | None, type | None] = {}
